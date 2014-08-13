@@ -1,0 +1,16 @@
+Build.PL
+Changes
+LICENSE
+META.json
+README.md
+cpanfile
+cpanfile.snapshot
+examples/readme.pl
+lib/JSON/RPC/Spec.pm
+lib/JSON/RPC/Spec/Procedure.pm
+minil.toml
+t/00_compile.t
+t/01_basic.t
+t/02_specification.t
+META.yml
+MANIFEST

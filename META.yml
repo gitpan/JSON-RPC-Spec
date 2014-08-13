@@ -1,0 +1,41 @@
+---
+abstract: 'Yet another JSON-RPC 2.0 Implementation'
+author:
+  - 'nqounet <mail@nqou.net>'
+build_requires:
+  Test::More: '0.98'
+configure_requires:
+  Module::Build::Tiny: '0.035'
+dynamic_config: 0
+generated_by: 'Minilla/v2.1.1, CPAN::Meta::Converter version 2.142060'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: JSON-RPC-Spec
+no_index:
+  directory:
+    - t
+    - xt
+    - inc
+    - share
+    - eg
+    - examples
+    - author
+    - builder
+provides:
+  JSON::RPC::Spec:
+    file: lib/JSON/RPC/Spec.pm
+    version: '0.01'
+  JSON::RPC::Spec::Procedure:
+    file: lib/JSON/RPC/Spec/Procedure.pm
+requires:
+  JSON::XS: '3.01'
+  Router::Simple: '0.15'
+  Try::Tiny: '0.22'
+  perl: '5.008001'
+resources:
+  bugtracker: https://github.com/nqounet/p5-json-rpc-spec/issues
+  homepage: https://github.com/nqounet/p5-json-rpc-spec
+  repository: https://github.com/nqounet/p5-json-rpc-spec.git
+version: '0.01'
