@@ -26,7 +26,7 @@ no_index:
 provides:
   JSON::RPC::Spec:
     file: lib/JSON/RPC/Spec.pm
-    version: '0.01'
+    version: '0.02'
   JSON::RPC::Spec::Procedure:
     file: lib/JSON/RPC/Spec/Procedure.pm
 requires:
@@ -38,4 +38,5 @@ resources:
   bugtracker: https://github.com/nqounet/p5-json-rpc-spec/issues
   homepage: https://github.com/nqounet/p5-json-rpc-spec
   repository: https://github.com/nqounet/p5-json-rpc-spec.git
-version: '0.01'
+version: '0.02'
+x_authority: cpan:NQOUNET

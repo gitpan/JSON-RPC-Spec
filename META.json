@@ -57,7 +57,7 @@
    "provides" : {
       "JSON::RPC::Spec" : {
          "file" : "lib/JSON/RPC/Spec.pm",
-         "version" : "0.01"
+         "version" : "0.02"
       },
       "JSON::RPC::Spec::Procedure" : {
          "file" : "lib/JSON/RPC/Spec/Procedure.pm"
@@ -74,5 +74,6 @@
          "web" : "https://github.com/nqounet/p5-json-rpc-spec"
       }
    },
-   "version" : "0.01"
+   "version" : "0.02",
+   "x_authority" : "cpan:NQOUNET"
 }

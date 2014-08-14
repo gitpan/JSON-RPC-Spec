@@ -5,6 +5,7 @@ META.json
 README.md
 cpanfile
 cpanfile.snapshot
+examples/matched.pl
 examples/readme.pl
 lib/JSON/RPC/Spec.pm
 lib/JSON/RPC/Spec/Procedure.pm
@@ -12,5 +13,6 @@ minil.toml
 t/00_compile.t
 t/01_basic.t
 t/02_specification.t
+t/03_matched.t
 META.yml
 MANIFEST
