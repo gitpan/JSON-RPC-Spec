@@ -14,5 +14,11 @@ t/00_compile.t
 t/01_basic.t
 t/02_specification.t
 t/03_matched.t
+t/04_without_encode.t
+t/05_procedure.t
+t/06_constant.t
+xt/perlcritic.t
+xt/pod.t
+xt/pod_coverage.t
 META.yml
 MANIFEST

@@ -41,10 +41,13 @@
          }
       },
       "runtime" : {
+         "recommends" : {
+            "Cpanel::JSON::XS" : "0"
+         },
          "requires" : {
-            "JSON::XS" : "3.01",
-            "Router::Simple" : "0.15",
-            "Try::Tiny" : "0.22",
+            "JSON::MaybeXS" : "0",
+            "Router::Simple" : "0",
+            "Try::Tiny" : "0",
             "perl" : "5.008001"
          }
       },
@@ -57,7 +60,7 @@
    "provides" : {
       "JSON::RPC::Spec" : {
          "file" : "lib/JSON/RPC/Spec.pm",
-         "version" : "0.02"
+         "version" : "0.03"
       },
       "JSON::RPC::Spec::Procedure" : {
          "file" : "lib/JSON/RPC/Spec/Procedure.pm"
@@ -74,6 +77,6 @@
          "web" : "https://github.com/nqounet/p5-json-rpc-spec"
       }
    },
-   "version" : "0.02",
+   "version" : "0.03",
    "x_authority" : "cpan:NQOUNET"
 }
