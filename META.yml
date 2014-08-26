@@ -26,13 +26,18 @@ no_index:
 provides:
   JSON::RPC::Spec:
     file: lib/JSON/RPC/Spec.pm
-    version: '0.03'
+    version: v1.0.0
+  JSON::RPC::Spec::Client:
+    file: lib/JSON/RPC/Spec/Client.pm
+  JSON::RPC::Spec::Common:
+    file: lib/JSON/RPC/Spec/Common.pm
   JSON::RPC::Spec::Procedure:
     file: lib/JSON/RPC/Spec/Procedure.pm
 recommends:
   Cpanel::JSON::XS: '0'
 requires:
   JSON::MaybeXS: '0'
+  Moo: '0'
   Router::Simple: '0'
   Try::Tiny: '0'
   perl: '5.008001'
@@ -40,5 +45,5 @@ resources:
   bugtracker: https://github.com/nqounet/p5-json-rpc-spec/issues
   homepage: https://github.com/nqounet/p5-json-rpc-spec
   repository: https://github.com/nqounet/p5-json-rpc-spec.git
-version: '0.03'
+version: v1.0.0
 x_authority: cpan:NQOUNET

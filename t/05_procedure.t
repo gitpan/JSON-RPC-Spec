@@ -1,5 +1,6 @@
 use strict;
 use Test::More 0.98;
+use Test::Fatal;
 
 use Router::Simple;
 use JSON::RPC::Spec::Procedure;
@@ -11,14 +12,21 @@ $router->connect(
     }
 );
 
-my $proc = JSON::RPC::Spec::Procedure->new(router => $router);
-ok $proc,     'new';
+my $proc;
+is(exception { $proc = JSON::RPC::Spec::Procedure->new(router => $router) },
+    undef, 'new')
+  or diag explain $proc;
 isa_ok $proc, 'JSON::RPC::Spec::Procedure';
 
 subtest 'new hashref' => sub {
-    my $proc = JSON::RPC::Spec::Procedure->new({router => $router});
-    ok $proc,     'new';
-    isa_ok $proc, 'JSON::RPC::Spec::Procedure';
+    is(
+        exception {
+            $proc
+              = JSON::RPC::Spec::Procedure->new({router => $router})
+        },
+        undef,
+        'new'
+    ) or diag explain $proc;
 };
 
 subtest 'parse' => sub {
@@ -43,15 +51,17 @@ subtest 'parse' => sub {
 
 subtest 'trigger' => sub {
     my $params = 'Hello, trigger!';
-    my $res = $proc->trigger('echo', $params);
+    my $res = $proc->_trigger('echo', $params);
     is $res, $params, 'trigger' or diag explain $res;
 };
 
 subtest 'router missing' => sub {
     my $res;
-    eval { $res = JSON::RPC::Spec::Procedure->new; };
-    ok $@;
-    like $@, qr/router requred/, 'router requred';
+    like(
+        exception { $res = JSON::RPC::Spec::Procedure->new },
+        qr/\QMissing required arguments\E/,
+        'router requred'
+    ) or diag explain $res;
 };
 
 done_testing;

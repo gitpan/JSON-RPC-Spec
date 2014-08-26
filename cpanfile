@@ -1,4 +1,5 @@
 requires 'perl', '5.008001';
+requires 'Moo';
 requires 'JSON::MaybeXS';
 requires 'Router::Simple';
 requires 'Try::Tiny';

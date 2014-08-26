@@ -46,6 +46,7 @@
          },
          "requires" : {
             "JSON::MaybeXS" : "0",
+            "Moo" : "0",
             "Router::Simple" : "0",
             "Try::Tiny" : "0",
             "perl" : "5.008001"
@@ -60,7 +61,13 @@
    "provides" : {
       "JSON::RPC::Spec" : {
          "file" : "lib/JSON/RPC/Spec.pm",
-         "version" : "0.03"
+         "version" : "v1.0.0"
+      },
+      "JSON::RPC::Spec::Client" : {
+         "file" : "lib/JSON/RPC/Spec/Client.pm"
+      },
+      "JSON::RPC::Spec::Common" : {
+         "file" : "lib/JSON/RPC/Spec/Common.pm"
       },
       "JSON::RPC::Spec::Procedure" : {
          "file" : "lib/JSON/RPC/Spec/Procedure.pm"
@@ -77,6 +84,6 @@
          "web" : "https://github.com/nqounet/p5-json-rpc-spec"
       }
    },
-   "version" : "0.03",
+   "version" : "v1.0.0",
    "x_authority" : "cpan:NQOUNET"
 }

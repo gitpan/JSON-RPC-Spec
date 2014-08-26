@@ -1,20 +1,29 @@
 use strict;
 use Test::More 0.98;
+use Test::Fatal;
 
 use JSON::RPC::Spec;
-use JSON::MaybeXS;
+use JSON::MaybeXS qw(JSON);
 
-my $rpc   = new_ok 'JSON::RPC::Spec';
+my $rpc;
+is(exception { $rpc = JSON::RPC::Spec->new }, undef, 'new')
+  or diag explain $rpc;
+
 my $coder = JSON->new->utf8;
 
-subtest 'register' => sub {
-    my $register = $rpc->register(echo => sub { $_[0] });
-    ok $register, 'method register';
-    is ref $register, 'JSON::RPC::Spec', 'instance of `JSON::RPC::Spec`'
-      or diag explain $register;
+subtest 'method register' => sub {
+    my $result;
+    is(
+        exception {
+            $result = $rpc->register(echo => sub { $_[0] })
+        },
+        undef,
+        'call'
+    ) or diag explain $result;
+    isa_ok $result, 'JSON::RPC::Spec' or diag explain $result;
 };
 
-subtest 'parse' => sub {
+subtest 'method parse' => sub {
     for my $content ('Hello', [1, 2], {foo => 'bar'}) {
         my $id          = time;
         my $json_string = $coder->encode(
@@ -25,8 +34,10 @@ subtest 'parse' => sub {
                 params  => $content
             }
         );
-        my $result = $rpc->parse($json_string);
-        ok $result, 'parse ok';
+        my $result;
+        is(exception { $result = $rpc->parse($json_string); }, undef, 'call')
+          or diag explain $result;
+
         is_deeply $coder->decode($result),
           +{
             jsonrpc => '2.0',
@@ -39,8 +50,9 @@ subtest 'parse' => sub {
 };
 
 subtest 'empty string' => sub {
-    my $result = $rpc->parse('');
-    ok $result, 'method parse';
+    my $result;
+    is(exception { $result = $rpc->parse('') }, undef, 'call')
+      or diag explain $result;
     is_deeply $coder->decode($result),
       +{
         jsonrpc => '2.0',
@@ -64,8 +76,14 @@ subtest 'result is empty string' => sub {
             params  => ''
         }
     );
-    my $result = $rpc->parse($json_string);
-    ok $result, 'method parse';
+    my $result;
+    is(
+        exception {
+            $result = $rpc->parse($json_string)
+        },
+        undef,
+        'call'
+    ) or diag explain $result;
     is_deeply $coder->decode($result),
       +{
         jsonrpc => '2.0',
@@ -88,8 +106,14 @@ subtest 'custom error' => sub {
                 params  => $content
             }
         );
-        my $result = $rpc->parse($json_string);
-        ok $result, 'parse ok';
+        my $result;
+        is(
+            exception {
+                $result = $rpc->parse($json_string)
+            },
+            undef,
+            'call'
+        ) or diag explain $result;
         is_deeply $coder->decode($result),
           +{
             jsonrpc => '2.0',
