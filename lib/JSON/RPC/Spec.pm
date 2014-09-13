@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Carp ();
 
-use version; our $VERSION = version->declare("v1.0.0");
+use version; our $VERSION = version->declare("v1.0.1");
 
 use Try::Tiny;
 use Router::Simple;
@@ -40,6 +40,8 @@ has _client => (
 has _is_batch => (is => 'rw');
 
 has _content => (is => 'rw');
+
+no Moo;
 
 sub _parse_json {
     my ($self) = @_;
@@ -150,7 +152,15 @@ JSON::RPC::Spec - Yet another JSON-RPC 2.0 Implementation
 
 JSON::RPC::Spec is Yet another JSON-RPC 2.0 Implementation.
 
-JSON format string execute registerd method
+JSON format string execute registered method.
+
+JSON::RPC - PSGI
+
+The tightly also supports BATCH.
+
+As a feature.
+1. JSON string to JSON string.
+2. Simple register callback.
 
 =head1 FUNCTIONS
 

@@ -26,6 +26,7 @@ t/Fake/Match.pm
 t/Fake/New.pm
 t/json-rpc-spec-client.t
 t/json-rpc-spec.t
+t/proverc
 xt/cpan-changes.t
 xt/perl-critic.t
 xt/pod-coverage.t
